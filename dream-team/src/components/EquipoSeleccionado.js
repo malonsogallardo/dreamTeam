@@ -1,5 +1,14 @@
 import React from "react";
+import Titulares from "./Titulares";
+import Suplentes from "./Suplentes";
 
-export const EquipoSeleccionado = () => {
-  return <div> somos el equipo seleccionado</div>;
+const EquipoSeleccionado = () => {
+  return (
+    <section>
+      <Titulares />
+      <Suplentes />
+    </section>
+  );
 };
+
+export default EquipoSeleccionado;
