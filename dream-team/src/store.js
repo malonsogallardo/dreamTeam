@@ -1,4 +1,4 @@
-import { createStore, bindActionCreators } from "redux";
+import { createStore } from "redux";
 
 const initialState = {
   jugadores: [
@@ -43,6 +43,26 @@ const reducerEntrenador = (state = initialState, action) => {
       jugadores: state.jugadores.filter(
         (element) => element.id !== action.jugador.id
       ),
+    };
+  }
+
+  if (action.type === "QUITAR_TITULAR") {
+    return {
+      ...state,
+      titulares: state.titulares.filter(
+        (element) => element.id !== action.jugador.id
+      ),
+      jugadores: state.jugadores.concat(action.jugador),
+    };
+  }
+
+  if (action.type === "QUITAR_SUPLENTE") {
+    return {
+      ...state,
+      suplentes: state.suplentes.filter(
+        (element) => element.id !== action.jugador.id
+      ),
+      jugadores: state.jugadores.concat(action.jugador),
     };
   }
 

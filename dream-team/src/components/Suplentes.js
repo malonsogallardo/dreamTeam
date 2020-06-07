@@ -2,7 +2,7 @@ import React from "react";
 
 import { connect } from "react-redux";
 
-const Suplentes = ({ suplentes }) => {
+const Suplentes = ({ suplentes, quitarSuplente }) => {
   return (
     <section>
       <h2>Suplentes</h2>
@@ -11,7 +11,7 @@ const Suplentes = ({ suplentes }) => {
           <article className="suplente" key={element.id}>
             <div>
               <img src={element.foto} alt={element.nombre}></img>
-              <button>X</button>
+              <button onClick={() => quitarSuplente(element)}>X</button>
             </div>
             <p>{element.nombre}</p>
           </article>
@@ -27,6 +27,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  quitarSuplente(jugador) {
+    dispatch({
+      type: "QUITAR_SUPLENTE",
+      jugador,
+    });
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Suplentes);
