@@ -5,6 +5,8 @@ import store from "./store";
 import Jugadores from "./components/Jugadores";
 import EquipoSeleccionado from "./components/EquipoSeleccionado";
 
+import "./styles/styles.scss";
+
 export const App = () => {
   return (
     <Provider store={store}>
